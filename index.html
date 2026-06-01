@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vexo Africa — From Ideas to Market-Ready Systems</title>
+<meta name="description" content="Vexo Africa is a technology and growth company helping founders and businesses build strategic, technological, and operational foundations for sustainable growth."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════
+   VEXO AFRICA — FULL WEBSITE
+   Premium Dark / Strategy & Technology
+   ═══════════════════════════════════════ */
+
+:root {
+  --bg:           #080808;
+  --bg-1:         #0c0c0c;
+  --bg-2:         #0f0f0f;
+  --bg-3:         #131313;
+  --bg-card:      #101010;
+  --bg-card-h:    #161616;
+  --border:       rgba(255,255,255,0.065);
+  --border-soft:  rgba(255,255,255,0.1);
+  --border-med:   rgba(255,255,255,0.14);
+  --text:         #ebe7df;
+  --text-dim:     rgba(235,231,223,0.54);
+  --text-faint:   rgba(235,231,223,0.28);
+  --text-ghost:   rgba(235,231,223,0.12);
+  --accent:       #7a9e72;
+  --accent-d:     #5a7a53;
+  --accent-l:     #a5c69b;
+  --accent-xl:    #c8dfc4;
+  --rust:         #b85e48;
+  --rust-l:       #d4806b;
+  --gold:         #c4a044;
+  --white:        #ffffff;
+  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'Space Mono', monospace;
+  --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:  cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:var(--font-sans);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent-d);border-radius:2px}
+::selection{background:var(--accent);color:#fff}
+
+/* ──────────────────────────────────────
+   CURSOR
+────────────────────────────────────── */
+.cursor{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s,opacity 0.3s;mix-blend-mode:difference}
+.cursor-ring{position:fixed;width:32px;height:32px;border-radius:50%;border:1px solid rgba(122,158,114,0.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all 0.18s var(--ease-out)}
+@media(max-width:768px){.cursor,.cursor-ring{display:none}}
+
+/* ──────────────────────────────────────
+   NAVIGATION
+────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:76px;
+  border-bottom:1px solid transparent;
+  transition:all 0.5s var(--ease-out);
+}
+nav.scrolled{
+  background:rgba(8,8,8,0.88);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom-color:var(--border);height:64px;
+}
+.nav-logo{display:flex;align-items:center;gap:0;text-decoration:none;opacity:1}
+.nav-logo svg{height:40px;width:auto;transition:opacity 0.3s}.nav-logo:hover svg{opacity:1}
+
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{
+  color:var(--text-dim);text-decoration:none;
+  font-size:11.5px;letter-spacing:0.13em;text-transform:uppercase;font-weight:400;
+  transition:color 0.25s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;
+  background:var(--accent);transition:width 0.3s var(--ease-out);
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;border:1px solid var(--accent);
+  color:var(--accent)!important;padding:9px 24px;border-radius:1px;
+  font-size:11px!important;letter-spacing:0.14em!important;
+  transition:all 0.3s!important;
+}
+.nav-cta-btn::after{display:none!important}
+.nav-cta-btn:hover{background:var(--accent)!important;color:#fff!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:22px;height:1px;background:var(--text);transition:all 0.3s}
+
+/* ──────────────────────────────────────
+   MOBILE OVERLAY
+────────────────────────────────────── */
+.mob-overlay{
+  display:none;position:fixed;inset:0;z-index:850;
+  background:rgba(8,8,8,0.97);backdrop-filter:blur(24px);
+  flex-direction:column;align-items:center;justify-content:center;gap:28px;
+}
+.mob-overlay.open{display:flex}
+.mob-overlay a{
+  font-family:var(--font-serif);font-size:36px;font-weight:300;
+  color:var(--text);text-decoration:none;transition:color 0.25s;letter-spacing:0.02em;
+}
+.mob-overlay a:hover{color:var(--accent-l)}
+.mob-close{
+  position:absolute;top:24px;right:5vw;font-size:24px;
+  color:var(--text-dim);cursor:pointer;transition:color 0.25s;
+}
+.mob-close:hover{color:var(--text)}
+
+/* ──────────────────────────────────────
+   HERO
+────────────────────────────────────── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  padding:140px 5vw 100px;overflow:hidden;
+}
+#hero-canvas{
+  position:absolute;inset:0;width:100%;height:100%;
+  pointer-events:none;opacity:0.6;
+}
+.hero-vignette{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 70% at 65% 50%, transparent 0%, var(--bg) 75%);
+  pointer-events:none;z-index:1;
+}
+.hero-grain{
+  position:absolute;inset:0;pointer-events:none;z-index:2;opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+.hero-inner{position:relative;z-index:3;max-width:1280px;margin:0 auto;width:100%}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:32px;
+  opacity:0;animation:slideUp 0.9s var(--ease-out) 0.15s forwards;
+}
+.hero-tag-line{display:block;width:36px;height:1px;background:var(--accent)}
+.hero-h1{
+  font-family:var(--font-serif);
+  font-size:clamp(56px, 9.5vw, 128px);
+  font-weight:300;line-height:0.95;letter-spacing:-0.025em;
+  color:var(--white);margin-bottom:32px;
+  opacity:0;animation:slideUp 0.9s var(--ease-out) 0.3s forwards;
+}
+.hero-h1 em{font-style:italic;color:var(--accent-l)}
+.hero-h1 span.outline{
+  -webkit-text-stroke:1px rgba(255,255,255,0.25);color:transparent;
+}
+.hero-sub{
+  font-size:clamp(15px,1.6vw,18px);font-weight:300;
+  color:var(--text-dim);max-width:520px;line-height:1.85;margin-bottom:56px;
+  opacity:0;animation:slideUp 0.9s var(--ease-out) 0.45s forwards;
+}
+.hero-btns{
+  display:flex;gap:16px;flex-wrap:wrap;
+  opacity:0;animation:slideUp 0.9s var(--ease-out) 0.6s forwards;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-sans);font-size:12px;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;
+  padding:15px 34px;border-radius:1px;cursor:pointer;border:none;
+  transition:all 0.32s var(--ease-out);position:relative;overflow:hidden;
+}
+.btn-fill{background:var(--accent);color:#fff}
+.btn-fill::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.btn-fill:hover{background:var(--accent-d);transform:translateY(-1px)}
+.btn-fill:hover::before{opacity:1}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border-soft)}
+.btn-outline:hover{border-color:var(--border-med);color:var(--white);transform:translateY(-1px)}
+.hero-scroll{
+  position:absolute;bottom:52px;left:5vw;
+  display:flex;align-items:center;gap:14px;
+  opacity:0;animation:fadeIn 1s var(--ease-out) 1.1s forwards;
+}
+.hero-scroll-bar{width:1px;height:52px;background:linear-gradient(to bottom,transparent,var(--accent));animation:pulse 2.2s ease-in-out infinite}
+.hero-scroll-txt{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.24em;
+  text-transform:uppercase;color:var(--text-faint);writing-mode:vertical-rl;
+}
+.hero-badges{
+  position:absolute;bottom:52px;right:5vw;
+  display:flex;gap:40px;
+  opacity:0;animation:fadeIn 1s var(--ease-out) 1.2s forwards;
+}
+.hero-badge{text-align:right}
+.hero-badge-n{
+  font-family:var(--font-serif);font-size:42px;font-weight:300;
+  color:var(--white);line-height:1;display:block;
+}
+.hero-badge-l{
+  font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--text-faint);margin-top:4px;display:block;
+}
+
+/* ──────────────────────────────────────
+   TICKER / MARQUEE
+────────────────────────────────────── */
+.marquee-wrap{
+  background:var(--bg-2);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:16px 0;overflow:hidden;position:relative;
+}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 35s linear infinite}
+.marquee-item{
+  display:inline-flex;align-items:center;gap:36px;padding:0 36px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--text-faint);
+}
+.marquee-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.marquee-wrap::before,.marquee-wrap::after{
+  content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;
+}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg-2),transparent)}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg-2),transparent)}
+
+/* ──────────────────────────────────────
+   TRUST BAR
+────────────────────────────────────── */
+.trust{background:var(--bg-1);border-bottom:1px solid var(--border)}
+.trust-inner{
+  max-width:1280px;margin:0 auto;padding:36px 5vw;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;
+}
+.trust-label{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--text-faint);white-space:nowrap;
+}
+.trust-items{display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+.trust-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:12.5px;font-weight:400;color:var(--text-dim);
+}
+.trust-check{
+  width:18px;height:18px;border:1px solid var(--accent);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.trust-check svg{width:9px;height:9px}
+
+/* ──────────────────────────────────────
+   SECTION COMMONS
+────────────────────────────────────── */
+section{padding:120px 5vw}
+.si{max-width:1280px;margin:0 auto}
+.sec-tag{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:20px;
+}
+.sec-tag::before{content:'';display:block;width:28px;height:1px;background:var(--accent)}
+h2.sec-h{
+  font-family:var(--font-serif);
+  font-size:clamp(38px,5.5vw,72px);
+  font-weight:300;line-height:1.08;letter-spacing:-0.025em;color:var(--white);
+}
+h2.sec-h em{font-style:italic;color:var(--accent-l)}
+.hr{width:calc(100% - 10vw);margin:0 5vw;height:1px;background:var(--border)}
+
+/* ──────────────────────────────────────
+   ABOUT
+────────────────────────────────────── */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;margin-top:72px}
+.about-text p{font-size:16px;font-weight:300;color:var(--text-dim);line-height:1.95;margin-bottom:20px}
+.about-text p:first-child{
+  font-family:var(--font-serif);font-size:23px;font-weight:400;
+  color:var(--text);line-height:1.65;margin-bottom:28px;
+}
+.about-cta{margin-top:40px;display:flex;gap:16px;align-items:center}
+.about-link{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;transition:gap 0.3s;
+}
+.about-link:hover{gap:14px}
+.about-right{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.about-stat{
+  background:var(--bg-card);padding:36px 32px;
+  display:flex;align-items:flex-start;gap:20px;
+  transition:background 0.3s;
+}
+.about-stat:hover{background:var(--bg-card-h)}
+.about-stat-icon{
+  width:44px;height:44px;border:1px solid var(--border-soft);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.about-stat-n{
+  font-family:var(--font-serif);font-size:38px;font-weight:300;
+  color:var(--white);line-height:1;display:block;
+}
+.about-stat-l{font-size:12px;color:var(--text-faint);margin-top:4px}
+.about-stat-desc{font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:8px}
+
+/* ──────────────────────────────────────
+   CAPABILITIES
+────────────────────────────────────── */
+.cap-bg{background:var(--bg-1)}
+.cap-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:72px}
+.cap-intro{font-size:14px;color:var(--text-faint);max-width:360px;line-height:1.85;text-align:right}
+.cap-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);border:1px solid var(--border);
+}
+.cap-card{
+  background:var(--bg-card);padding:44px 34px;
+  position:relative;overflow:hidden;transition:background 0.35s;cursor:default;
+}
+.cap-card:hover{background:var(--bg-card-h)}
+.cap-bar{
+  position:absolute;bottom:0;left:0;width:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-l));
+  transition:width 0.5s var(--ease-out);
+}
+.cap-card:hover .cap-bar{width:100%}
+.cap-n{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.18em;
+  color:var(--text-ghost);margin-bottom:28px;display:block;
+}
+.cap-ico{margin-bottom:20px;opacity:0.65;transition:opacity 0.3s}
+.cap-card:hover .cap-ico{opacity:1}
+.cap-title{
+  font-family:var(--font-serif);font-size:22px;font-weight:400;
+  color:var(--white);margin-bottom:12px;line-height:1.2;
+}
+.cap-desc{font-size:13px;color:var(--text-faint);line-height:1.75}
+.cap-tag{
+  display:inline-block;margin-top:20px;
+  font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--accent);opacity:0;
+  transform:translateY(8px);transition:all 0.3s;
+}
+.cap-card:hover .cap-tag{opacity:1;transform:translateY(0)}
+
+/* ──────────────────────────────────────
+   PROCESS / HOW WE WORK
+────────────────────────────────────── */
+.process-header{margin-bottom:88px}
+.process-intro{
+  font-size:15px;color:var(--text-dim);max-width:520px;
+  line-height:1.9;margin-top:20px;
+}
+.process-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.p-step{
+  background:var(--bg-card);padding:52px 44px;
+  position:relative;overflow:hidden;transition:background 0.35s;
+}
+.p-step:hover{background:var(--bg-card-h)}
+.p-step-num{
+  font-family:var(--font-serif);font-size:96px;font-weight:300;
+  color:var(--text-ghost);line-height:1;position:absolute;
+  top:24px;right:28px;pointer-events:none;
+  transition:color 0.4s;
+}
+.p-step:hover .p-step-num{color:rgba(122,158,114,0.12)}
+.p-step-tag{
+  font-family:var(--font-mono);font-size:9px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:20px;
+}
+.p-step-h{
+  font-family:var(--font-serif);font-size:28px;font-weight:400;
+  color:var(--white);margin-bottom:16px;line-height:1.1;
+}
+.p-step-p{font-size:14px;color:var(--text-dim);line-height:1.85}
+.p-step-deliverable{
+  margin-top:28px;padding:16px 18px;border:1px solid var(--border);
+  background:rgba(122,158,114,0.04);
+}
+.p-step-deliverable-l{
+  font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:6px;
+}
+.p-step-deliverable-v{font-size:12.5px;color:var(--text-dim)}
+.p-full{grid-column:1/-1}
+
+/* ──────────────────────────────────────
+   WHO WE WORK WITH
+────────────────────────────────────── */
+.aud-bg{background:var(--bg-1)}
+.aud-layout{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;margin-top:72px}
+.aud-left h2{margin-bottom:24px}
+.aud-left p{font-size:14px;color:var(--text-dim);line-height:1.9;margin-bottom:32px}
+.aud-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:gap 0.3s}
+.aud-cta:hover{gap:14px}
+.aud-right{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.aud-item{
+  background:var(--bg-card);padding:28px 30px;
+  display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:20px;
+  transition:background 0.3s;cursor:default;
+}
+.aud-item:hover{background:var(--bg-card-h)}
+.aud-num{
+  font-family:var(--font-serif);font-size:32px;font-weight:300;
+  color:var(--border-med);line-height:1;transition:color 0.3s;
+}
+.aud-item:hover .aud-num{color:var(--accent)}
+.aud-name{font-family:var(--font-serif);font-size:22px;font-weight:400;color:var(--white)}
+.aud-sub{font-size:12.5px;color:var(--text-faint);margin-top:4px}
+.aud-tag{
+  font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--text-ghost);border:1px solid var(--border);
+  padding:5px 12px;white-space:nowrap;transition:all 0.3s;
+}
+.aud-item:hover .aud-tag{color:var(--accent);border-color:var(--accent)}
+
+/* ──────────────────────────────────────
+   WHY VEXO
+────────────────────────────────────── */
+.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;margin-top:72px}
+.why-left p{font-size:15px;color:var(--text-dim);line-height:1.9;margin-top:20px;margin-bottom:16px}
+.why-pull{
+  font-family:var(--font-serif);font-size:26px;font-weight:300;
+  color:var(--text);line-height:1.5;border-left:2px solid var(--accent);
+  padding-left:24px;margin:32px 0;font-style:italic;
+}
+.why-right{display:flex;flex-direction:column;gap:16px}
+.why-card{
+  border:1px solid var(--border);padding:28px 28px;
+  display:flex;gap:20px;align-items:flex-start;
+  transition:border-color 0.3s,background 0.3s;
+}
+.why-card:hover{border-color:var(--accent);background:rgba(122,158,114,0.04)}
+.why-card-ico{
+  width:40px;height:40px;background:rgba(122,158,114,0.1);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:17px;transition:background 0.3s;
+}
+.why-card:hover .why-card-ico{background:rgba(122,158,114,0.2)}
+.why-card-title{
+  font-family:var(--font-serif);font-size:19px;font-weight:400;
+  color:var(--white);margin-bottom:7px;
+}
+.why-card-desc{font-size:13px;color:var(--text-faint);line-height:1.75}
+
+/* ──────────────────────────────────────
+   METRICS
+────────────────────────────────────── */
+.metrics-bg{
+  background:linear-gradient(135deg,rgba(122,158,114,0.06) 0%,transparent 60%),var(--bg-1);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);
+}
+.metric-card{
+  background:var(--bg-card);padding:52px 40px;text-align:center;
+  transition:background 0.3s;
+}
+.metric-card:hover{background:var(--bg-card-h)}
+.metric-n{
+  font-family:var(--font-serif);font-size:64px;font-weight:300;
+  color:var(--white);line-height:1;display:block;margin-bottom:8px;
+}
+.metric-suffix{color:var(--accent)}
+.metric-l{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--text-faint);
+}
+.metric-desc{font-size:12.5px;color:var(--text-faint);margin-top:10px;line-height:1.5}
+
+/* ──────────────────────────────────────
+   WORK / CASE STUDIES
+────────────────────────────────────── */
+.work-bg{background:var(--bg-2)}
+.work-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:72px}
+.work-head-sub{font-size:13.5px;color:var(--text-faint);max-width:380px;line-height:1.85;text-align:right}
+.work-featured{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-bottom:1px}
+.work-single{background:var(--border)}
+.work-card{
+  background:var(--bg-card);padding:52px 48px;
+  position:relative;overflow:hidden;transition:background 0.35s;
+}
+.work-card:hover{background:var(--bg-card-h)}
+.work-card-accent{
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-l));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.5s var(--ease-out);
+}
+.work-card:hover .work-card-accent{transform:scaleX(1)}
+.work-region{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:24px;
+  display:flex;align-items:center;gap:10px;
+}
+.work-region::before{content:'';display:block;width:20px;height:1px;background:var(--accent)}
+.work-client{
+  font-family:var(--font-serif);font-size:40px;font-weight:300;
+  color:var(--white);line-height:1;margin-bottom:6px;
+}
+.work-sub{font-size:12px;color:var(--text-faint);margin-bottom:32px;letter-spacing:0.05em}
+.work-desc{font-size:14px;color:var(--text-dim);line-height:1.9;margin-bottom:36px}
+.work-outcome{
+  background:rgba(122,158,114,0.06);border:1px solid rgba(122,158,114,0.15);
+  padding:18px 20px;margin-bottom:28px;
+}
+.work-outcome-l{
+  font-family:var(--font-mono);font-size:8.5px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:8px;
+}
+.work-outcome-v{font-size:13px;color:var(--text-dim);line-height:1.6}
+.work-chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-size:10.5px;padding:5px 14px;
+  border:1px solid var(--border-soft);color:var(--text-faint);
+  border-radius:20px;letter-spacing:0.04em;
+  transition:all 0.25s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+/* Third work card spans full width */
+.work-third{display:grid;grid-template-columns:1fr 2fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.work-third-left{background:var(--bg-card);padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between}
+.work-third-right{background:var(--bg-card);padding:52px 48px}
+.work-third:hover .work-third-left,.work-third:hover .work-third-right{background:var(--bg-card-h)}
+
+/* ──────────────────────────────────────
+   INSIGHTS
+────────────────────────────────────── */
+.ins-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:72px}
+.ins-card{
+  border:1px solid var(--border);padding:40px 32px;
+  transition:border-color 0.3s,background 0.3s;position:relative;
+}
+.ins-card:hover{border-color:var(--border-soft);background:var(--bg-card)}
+.ins-cat{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:20px;
+}
+.ins-title{
+  font-family:var(--font-serif);font-size:22px;font-weight:400;
+  color:var(--white);line-height:1.3;margin-bottom:14px;
+}
+.ins-desc{font-size:13px;color:var(--text-faint);line-height:1.75;margin-bottom:28px}
+.ins-footer{display:flex;align-items:center;justify-content:space-between}
+.ins-status{
+  font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--text-ghost);
+  border:1px solid var(--border);padding:4px 12px;border-radius:20px;
+}
+.ins-arr{font-size:20px;color:var(--accent);transition:transform 0.3s;display:block}
+.ins-card:hover .ins-arr{transform:translateX(6px)}
+
+/* ──────────────────────────────────────
+   CONTACT
+────────────────────────────────────── */
+.contact-bg{background:var(--bg-1)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:start;margin-top:72px}
+.contact-info h3{
+  font-family:var(--font-serif);font-size:36px;font-weight:300;
+  color:var(--white);line-height:1.2;margin-bottom:20px;
+}
+.contact-info p{font-size:14.5px;color:var(--text-dim);line-height:1.9;margin-bottom:44px}
+.contact-details{display:flex;flex-direction:column;gap:0;border:1px solid var(--border)}
+.c-detail{
+  display:flex;gap:0;border-bottom:1px solid var(--border);
+}
+.c-detail:last-child{border-bottom:none}
+.c-label{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--text-faint);
+  padding:18px 20px;border-right:1px solid var(--border);
+  min-width:110px;display:flex;align-items:center;
+}
+.c-val{font-size:13.5px;color:var(--text);padding:18px 20px;display:flex;align-items:center}
+.c-val a{color:var(--accent);text-decoration:none;transition:color 0.25s}
+.c-val a:hover{color:var(--accent-l)}
+/* FORM */
+.form{display:flex;flex-direction:column;gap:18px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{display:flex;flex-direction:column;gap:8px}
+.fl{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--text-faint);
+}
+.fi,.fs,.ft{
+  background:var(--bg-card);border:1px solid var(--border);
+  color:var(--text);font-family:var(--font-sans);font-size:14px;font-weight:300;
+  padding:14px 16px;border-radius:1px;outline:none;transition:border-color 0.25s;
+  -webkit-appearance:none;appearance:none;
+}
+.fi::placeholder,.ft::placeholder{color:var(--text-ghost)}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--accent)}
+.fs{cursor:pointer}
+.fs option{background:var(--bg-3);color:var(--text)}
+.ft{resize:vertical;min-height:128px}
+.fsub{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--accent);color:#fff;padding:17px 42px;
+  font-family:var(--font-sans);font-size:11.5px;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;
+  border:none;cursor:pointer;border-radius:1px;
+  transition:all 0.32s var(--ease-out);
+}
+.fsub:hover{background:var(--accent-d);transform:translateY(-1px)}
+.fsub svg{transition:transform 0.3s}
+.fsub:hover svg{transform:translateX(4px)}
+.form-note{
+  font-size:11.5px;color:var(--text-faint);line-height:1.6;margin-top:4px;
+}
+
+/* ──────────────────────────────────────
+   FOOTER
+────────────────────────────────────── */
+footer{
+  background:var(--bg);border-top:1px solid var(--border);
+  padding:72px 5vw 48px;
+}
+.footer-top{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+  gap:40px;margin-bottom:64px;
+}
+.footer-brand svg{height:32px;width:auto;margin-bottom:20px}
+.footer-brand p{font-size:12.5px;color:var(--text-faint);line-height:1.75;max-width:260px;margin-bottom:24px}
+.footer-reg{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.1em;
+  color:var(--text-ghost);border:1px solid var(--border);
+  padding:6px 12px;display:inline-block;
+}
+.footer-col h4{
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--text-faint);margin-bottom:20px;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{
+  font-size:12.5px;color:var(--text-faint);text-decoration:none;
+  transition:color 0.25s;
+}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:28px;border-top:1px solid var(--border);
+  flex-wrap:wrap;gap:12px;
+}
+.footer-bottom-l{font-size:11.5px;color:var(--text-faint)}
+.footer-bottom-r{display:flex;gap:24px;align-items:center}
+.footer-bottom-r a{font-size:11.5px;color:var(--text-faint);text-decoration:none;transition:color 0.25s}
+.footer-bottom-r a:hover{color:var(--text)}
+
+/* ──────────────────────────────────────
+   ANIMATIONS
+────────────────────────────────────── */
+@keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{opacity:0.25}50%{opacity:1}}
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s var(--ease-out),transform 0.8s var(--ease-out)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.r1{transition-delay:0.08s}.r2{transition-delay:0.16s}.r3{transition-delay:0.24s}.r4{transition-delay:0.32s}.r5{transition-delay:0.4s}
+
+/* ──────────────────────────────────────
+   RESPONSIVE
+────────────────────────────────────── */
+@media(max-width:1100px){
+  .cap-grid{grid-template-columns:repeat(2,1fr)}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:900px){
+  .about-layout,.why-layout,.contact-layout,.aud-layout{grid-template-columns:1fr;gap:52px}
+  .work-featured{grid-template-columns:1fr}
+  .work-third{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+  .ins-grid{grid-template-columns:1fr 1fr}
+  .hero-badges{position:static;margin-top:56px;justify-content:flex-start}
+  .hero-scroll{display:none}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  section{padding:80px 5vw}
+  .cap-grid{grid-template-columns:1fr}
+  .metrics-grid{grid-template-columns:1fr 1fr}
+  .ins-grid{grid-template-columns:1fr}
+  .work-third-left,.work-third-right{padding:36px 28px}
+  .work-card{padding:36px 28px}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:480px){
+  .metrics-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .aud-item{grid-template-columns:36px 1fr;gap:12px}
+  .aud-tag{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 44" height="38" aria-label="Vexo Africa">
+  <defs>
+    <style>
+      .vx-bar { fill: #7a9e72; }
+    </style>
+  </defs>
+  <!-- Left arm of V: 3 stacked parallel bars slanting bottom-left to upper-right -->
+  <!-- Bar 1 (outermost / lowest) -->
+  <rect x="0" y="26" width="28" height="7" rx="1" class="vx-bar" transform="rotate(-32,14,29.5)" opacity="0.75"/>
+  <!-- Bar 2 (middle) -->
+  <rect x="5" y="18" width="28" height="7" rx="1" class="vx-bar" transform="rotate(-32,19,21.5)" opacity="0.88"/>
+  <!-- Bar 3 (innermost / top) -->
+  <rect x="10" y="10" width="28" height="7" rx="1" class="vx-bar" transform="rotate(-32,24,13.5)"/>
+  <!-- Right arm of V: 3 stacked parallel bars slanting bottom-right to upper-left -->
+  <!-- Bar 1 (outermost) -->
+  <rect x="22" y="26" width="28" height="7" rx="1" class="vx-bar" transform="rotate(32,36,29.5)" opacity="0.75"/>
+  <!-- Bar 2 (middle) -->
+  <rect x="17" y="18" width="28" height="7" rx="1" class="vx-bar" transform="rotate(32,31,21.5)" opacity="0.88"/>
+  <!-- Bar 3 (innermost) -->
+  <rect x="12" y="10" width="28" height="7" rx="1" class="vx-bar" transform="rotate(32,26,13.5)"/>
+  <!-- Africa continent silhouette (simplified, terracotta) at top-right of V -->
+  <path d="M46,2 C47.5,1.5 49,2 50,3.5 C51.5,5 51.5,7 50.5,9 C50,10.5 49,12 48,13.5 C47,15 46,15.5 45,14.5 C44,13 43.5,11 44,9 C44,7 43.5,5 44.5,3.5 C45,2.5 45.5,2 46,2 Z" fill="#c0614a"/>
+  <!-- VEXO wordmark -->
+  <text x="60" y="26" font-family="'DM Sans',system-ui,sans-serif" font-size="16" font-weight="600" letter-spacing="3.5" fill="#ffffff">VEXO</text>
+  <!-- AFRICA subtext -->
+  <text x="61" y="38" font-family="'DM Sans',system-ui,sans-serif" font-size="8" font-weight="400" letter-spacing="4.5" fill="rgba(255,255,255,0.42)">AFRICA</text>
+</svg></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#insights">Insights</a></li>
+    <li><a href="#contact" class="nav-cta-btn">Book a Call <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+  </ul>
+  <div class="hamburger" id="hbg" onclick="openNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE OVERLAY -->
+<div class="mob-overlay" id="mobNav">
+  <span class="mob-close" onclick="closeNav()">✕</span>
+  <a href="#about" onclick="closeNav()">About</a>
+  <a href="#capabilities" onclick="closeNav()">Capabilities</a>
+  <a href="#process" onclick="closeNav()">Process</a>
+  <a href="#work" onclick="closeNav()">Work</a>
+  <a href="#insights" onclick="closeNav()">Insights</a>
+  <a href="#contact" onclick="closeNav()">Book a Call</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="home">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-vignette"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <div class="hero-tag"><span class="hero-tag-line"></span>Strategy · Technology · Growth</div>
+    <h1 class="hero-h1">
+      From <em>Ideas</em><br/>to Market-Ready<br/><span class="outline">Systems.</span>
+    </h1>
+    <p class="hero-sub">Vexo Africa helps founders and businesses build the strategic, technological, and operational foundations required for sustainable, long-term growth.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-fill">
+        Book a Consultation
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#capabilities" class="btn btn-outline">Explore Our Approach</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge">
+        <span class="hero-badge-n" data-count="10">0</span>
+        <span class="hero-badge-l">Core Capabilities</span>
+      </div>
+      <div class="hero-badge">
+        <span class="hero-badge-n" data-count="3">0</span>
+        <span class="hero-badge-l">Markets Activated</span>
+      </div>
+      <div class="hero-badge">
+        <span class="hero-badge-n" data-count="5">0</span>
+        <span class="hero-badge-l">Step Growth System</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-bar"></div><div class="hero-scroll-txt">Scroll</div></div>
+</section>
+
+<!-- ═══════════ MARQUEE ═══════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span>Market Entry Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Growth Architecture</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Product Positioning</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Digital Products</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Business Intelligence</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Customer Acquisition</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Operational Scalability</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Brand Development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Technology Enablement</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Market Entry Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Growth Architecture</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Product Positioning</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Digital Products</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Business Intelligence</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Customer Acquisition</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Operational Scalability</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Brand Development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Technology Enablement</span>
+  </div>
+</div>
+
+<!-- ═══════════ TRUST BAR ═══════════ -->
+<div class="trust">
+  <div class="trust-inner">
+    <span class="trust-label">Vexo Africa Is</span>
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7a9e72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        Strategy-First, Systems-Led
+      </div>
+      <div class="trust-item">
+        <div class="trust-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7a9e72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        Africa-Rooted, Globally Relevant
+      </div>
+      <div class="trust-item">
+        <div class="trust-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7a9e72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        Research-Driven Decision Making
+      </div>
+      <div class="trust-item">
+        <div class="trust-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#7a9e72" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        End-to-End Execution Support
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about">
+  <div class="si">
+    <div class="sec-tag reveal">About Vexo Africa</div>
+    <div class="about-layout">
+      <div class="about-text reveal">
+        <h2 class="sec-h">We Build the<br/><em>Foundations</em><br/>Growth Stands On.</h2>
+        <p style="margin-top:28px;">Vexo Africa is a technology and growth company — not a marketing agency, not a creative studio. We sit at the intersection of strategic consulting, venture thinking, and digital execution.</p>
+        <p>We work with founders, startups, and growth-stage companies to clarify their positioning, validate their strategy, design their systems, and execute with precision. Our approach is structured, research-grounded, and always built around the specific realities of each organisation we partner with.</p>
+        <p>Headquartered in Africa and operating globally, we bring deep contextual intelligence to complex business problems — combining Africa-rooted market insight with global strategic frameworks to help organisations grow with intention.</p>
+        <p>We operate under <strong style="color:var(--text);font-weight:400;">VEXO LIMITED (RC 9146038)</strong> — a registered entity built for long-term, trusted advisory relationships.</p>
+        <div class="about-cta">
+          <a href="#contact" class="about-link">Start a Conversation <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span style="color:var(--border-med);">|</span>
+          <a href="#capabilities" class="about-link">Explore Capabilities <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+      <div class="about-right reveal r2">
+        <div class="about-stat">
+          <div class="about-stat-icon">◈</div>
+          <div>
+            <span class="about-stat-n">10<span style="color:var(--accent);font-size:0.6em">+</span></span>
+            <div class="about-stat-l">Core Capabilities</div>
+            <div class="about-stat-desc">From market entry to operational scalability — a comprehensive suite of growth services.</div>
+          </div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-icon">◎</div>
+          <div>
+            <span class="about-stat-n">3</span>
+            <div class="about-stat-l">Active Market Engagements</div>
+            <div class="about-stat-desc">Strategic deployments across West Africa, East Africa, and international markets.</div>
+          </div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-icon">◐</div>
+          <div>
+            <span class="about-stat-n">5</span>
+            <div class="about-stat-l">Phase Growth System</div>
+            <div class="about-stat-desc">A proven, structured approach from research and discovery through to sustainable growth.</div>
+          </div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-icon">◉</div>
+          <div>
+            <span class="about-stat-n">∞</span>
+            <div class="about-stat-l">Long-Term Partnership Model</div>
+            <div class="about-stat-desc">We embed with clients across the journey — from early validation to scale and beyond.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ═══════════ CAPABILITIES ═══════════ -->
+<section class="cap-bg" id="capabilities">
+  <div class="si">
+    <div class="cap-head">
+      <div>
+        <div class="sec-tag reveal">What We Do</div>
+        <h2 class="sec-h reveal r1">Our <em>Capabilities</em></h2>
+      </div>
+      <p class="cap-intro reveal r2">A comprehensive suite of strategic, technological, and operational capabilities — designed for organisations serious about sustainable growth.</p>
+    </div>
+    <div class="cap-grid">
+
+      <div class="cap-card reveal">
+        <span class="cap-n">01</span>
+        <div class="cap-ico">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="13" stroke="#7a9e72" stroke-width="1.2"/><circle cx="19" cy="19" r="6.5" stroke="#7a9e72" stroke-width="1.2"/><line x1="19" y1="6" x2="19" y2="32" stroke="#7a9e72" stroke-width="1.2"/><line x1="6" y1="19" x2="32" y2="19" stroke="#7a9e72" stroke-width="1.2"/></svg>
+        </div>
+        <div class="cap-title">Market Entry</div>
+        <div class="cap-desc">Structured research, competitive analysis, and positioning frameworks to help you enter new markets with clarity, confidence, and competitive advantage.</div>
+        <span class="cap-tag">Strategic Advisory →</span>
+        <div class="cap-bar"></div>
+      </div>
+
+      <div class="cap-card reveal r1">
+        <span class="cap-n">02</span>
+        <div class="cap-ico">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M7 31L15 19L23 25L31 9" stroke="#7a9e72" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="31" cy="9" r="2.5" stroke="#7a9e72" stroke-width="1.2"/><circle cx="15" cy="19" r="2" fill="#7a9e72"/></svg>
+        </div>
+        <div class="cap-title">Growth Strategy</div>
+        <div class="cap-desc">Data-driven growth roadmaps that align your business objectives with scalable, executable plans — built around your specific market realities.</div>
+        <span class="cap-tag">Growth Advisory →</span>
+        <div class="cap-bar"></div>
+      </div>
+
+      <div class="cap-card reveal r2">
+        <span class="cap-n">03</span>
+        <div class="cap-ico">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="9" y="16" width="20" height="14" rx="1" stroke="#7a9e72" stroke-width="1.2"/><path d="M14 16V12a5 5 0 0110 0v4" stroke="#7a9e72" stroke-width="1.2" stroke-linecap="round"/><circle cx="19" cy="23" r="2" stroke="#7a9e72" stroke-width="1.2"/></svg>
+        </div>
+        <div class="cap-title">Product Positioning</div>
+        <div class="cap-desc">Sharpen your value proposition, identify your ideal customer profile, and carve a distinct and defensible position in your competitive landscape.</div>
+        <span class="cap-tag">Positioning &amp; Messaging →</span>
+        <div class="cap-bar"></div>
+      </div>
+
+      <div class="cap-card reveal r3">
+        <span class="cap-n">04</span>
+        <div class="cap-ico">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="7" y="7" width="10" height="10" rx="0.5" stroke="#7a9e72" stroke-width="1.2"/><rect x="21" y="7" width="10" height="10" rx="0.5" stroke="#7a9e72" stroke-width="1.2"/><rect x="7" y="21" width="10" height="10" rx="0.5" stroke="#7a9e72" stroke-width="1.2"/><rect x="21" y="21" width="10" height="10" rx="0.5" stroke="#7a9e72" stroke-width="1.2"/></svg>
+        </div>
+        <div class="cap-title">Digital Products</div>
+        <div class="cap-desc">Strategy, architecture, and development of digital products built for genuine user adoption, business performance, and long-term scalability.</div>
+        <span class="cap-tag">Product Development →</span>
+        <div class="cap-bar"></div>
+      </div>
+
+      <div class="cap-card reveal">
+        <span class="cap-n">05</span>
+        <div class="cap-ico">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 7l2.8 8.5H31l-7 5 2.6 8.5L19 24l-7.6 5 2.6-8.5-7-5h9.2z" stroke="#7a9e72" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cap-title">Brand Development</div>
+        <div class="cap-desc">Build brand systems — identity, voice, visual direction, and narrative — that communicate authority, earn trust, and resonate with your target audience.</div>
+        <span class="cap-tag">Brand Architecture →</span>
+        <div class="cap-bar"></div>
+      </div>
+
+      <div class="cap-card reveal r1">
+        <span class="cap-n">06</span>
+        <div class="cap-ico">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="7" y="24" width="6" height="8" stroke="#7a9e72" stroke-width="1.2"/><rect x="16" y="16" width="6" height="16" stroke="#7a9e72" stroke-width="1.2"/><rect x="25" y="8" width="6" height="24" stroke="#7a9e72" stroke-width="1.2"/></svg>
+        </div>
+        <div class="cap-title">Business Intelligence</div>
+        <div class="cap-desc">Research frameworks, market analysis, and analytics systems that convert raw market data into high-quality strategic business decisions.</div>
+        <span class="cap-tag">Research &amp; Analytics →</span>
+        <div class="cap-bar"></div>
+      </div>
+
+      <div class="cap-card reveal r2">
+        <span class="cap-n">07</span>
+        <div class="cap-ico">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="11" stroke="#7a9e72" stroke-width="1.2"/><path d="M19 8v3M19 27v3M8 19h3M27 19h3" stroke="#7a9e72" stroke-width="1.2" stroke-linecap="round"/><circle cx="19" cy="19" r="3" fill="#7a9e72"/></svg>
+        </div>
+        <div class="cap-title">Operational Scalability</div>
+        <div class="cap-desc">Systems, processes, and infrastructure designed to support significant growth without proportional increases in cost or operational complexity.</div>
+        <span class="cap-tag">Operations Design →</span>
+        <div class="cap-bar"></div>
+      </div>
+
+      <div class="cap-card reveal r3">
+        <span class="cap-n">08</span>
+        <div class="cap-ico">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M7 19c0-6.6 5.4-12 12-12s12 5.4 12 12" stroke="#7a9e72" stroke-width="1.2" stroke-linecap="round"/><path d="M13 26l6-7 4 4 7-9" stroke="#7a9e72" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cap-title">Customer Acquisition</div>
+        <div class="cap-desc">End-to-end acquisition systems — from channel strategy, paid media frameworks, and content architecture through to funnel design and conversion optimisation.</div>
+        <span class="cap-tag">Acquisition Systems →</span>
+        <div class="cap-bar"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROCESS ═══════════ -->
+<section id="process">
+  <div class="si">
+    <div class="process-header">
+      <div class="sec-tag reveal">Our Methodology</div>
+      <h2 class="sec-h reveal r1">How We <em>Work</em></h2>
+      <p class="process-intro reveal r2">A five-phase engagement model built on evidence, strategic clarity, and disciplined execution — designed to move organisations from unclear to unstoppable.</p>
+    </div>
+    <div class="process-grid">
+
+      <div class="p-step reveal">
+        <div class="p-step-num">01</div>
+        <div class="p-step-tag">Phase One</div>
+        <div class="p-step-h">Research &amp; Discovery</div>
+        <div class="p-step-p">We begin with deep listening and rigorous research. We study your market landscape, competitive dynamics, customer behaviours, internal capabilities, and the real constraints your business operates within. No assumptions. Only evidence-based understanding of where you actually stand.</div>
+        <div class="p-step-deliverable">
+          <div class="p-step-deliverable-l">Deliverable</div>
+          <div class="p-step-deliverable-v">Market landscape analysis · Competitive audit · Customer behaviour insights · Opportunity mapping</div>
+        </div>
+      </div>
+
+      <div class="p-step reveal r1">
+        <div class="p-step-num">02</div>
+        <div class="p-step-tag">Phase Two</div>
+        <div class="p-step-h">Strategic Clarity</div>
+        <div class="p-step-p">Discovery findings are synthesised into clear strategic direction. We define your positioning, identify your most valuable customer segments, sharpen your value proposition, and determine the specific growth levers most relevant to your context and objectives.</div>
+        <div class="p-step-deliverable">
+          <div class="p-step-deliverable-l">Deliverable</div>
+          <div class="p-step-deliverable-v">Strategic positioning framework · Value proposition · Growth lever identification · Target segment definition</div>
+        </div>
+      </div>
+
+      <div class="p-step reveal">
+        <div class="p-step-num">03</div>
+        <div class="p-step-tag">Phase Three</div>
+        <div class="p-step-h">System Design</div>
+        <div class="p-step-p">Strategy becomes architecture. We design the operational, digital, content, and marketing systems required to deliver on your growth objectives. Every system is built with repeatability and scalability in mind — so that growth compounds rather than requiring constant reinvention.</div>
+        <div class="p-step-deliverable">
+          <div class="p-step-deliverable-l">Deliverable</div>
+          <div class="p-step-deliverable-v">Growth system blueprint · Digital infrastructure plan · Content architecture · Acquisition funnel design</div>
+        </div>
+      </div>
+
+      <div class="p-step reveal r1">
+        <div class="p-step-num">04</div>
+        <div class="p-step-tag">Phase Four</div>
+        <div class="p-step-h">Execution Support</div>
+        <div class="p-step-p">We work alongside your team during implementation — providing strategic oversight, specialist execution support, and structured accountability to ensure the strategy translates into tangible market results. We do not hand off and disappear.</div>
+        <div class="p-step-deliverable">
+          <div class="p-step-deliverable-l">Deliverable</div>
+          <div class="p-step-deliverable-v">Weekly execution cadence · Content &amp; campaign delivery · Platform management · Performance reviews</div>
+        </div>
+      </div>
+
+      <div class="p-step p-full reveal">
+        <div class="p-step-num">05</div>
+        <div class="p-step-tag">Phase Five</div>
+        <div class="p-step-h">Sustainable Growth</div>
+        <div class="p-step-p">We measure, refine, and optimise continuously — building feedback loops and performance systems that allow your business to grow intelligently, adapt quickly, and compound results over time. The goal is not a project delivered, but a business genuinely built for long-term growth.</div>
+        <div class="p-step-deliverable">
+          <div class="p-step-deliverable-l">Deliverable</div>
+          <div class="p-step-deliverable-v">Performance analytics · Optimisation cadence · Scaled acquisition systems · Strategic review and iteration</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ═══════════ WHO WE WORK WITH ═══════════ -->
+<section class="aud-bg" id="audience">
+  <div class="si">
+    <div class="aud-layout">
+      <div class="aud-left">
+        <div class="sec-tag reveal">Who We Serve</div>
+        <h2 class="sec-h reveal r1">Built for <em>Builders</em></h2>
+        <p class="reveal r2">We work with organisations at the point of ambition — those who are serious about building something meaningful and understand that sustainable growth requires the right foundations.</p>
+        <a href="#contact" class="aud-cta reveal r3">Enquire About a Partnership <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="aud-right reveal r2">
+        <div class="aud-item">
+          <div class="aud-num">01</div>
+          <div>
+            <div class="aud-name">Startup Founders</div>
+            <div class="aud-sub">Early-stage · Pre-seed to Series A</div>
+          </div>
+          <div class="aud-tag">Core Focus</div>
+        </div>
+        <div class="aud-item">
+          <div class="aud-num">02</div>
+          <div>
+            <div class="aud-name">Entrepreneurs</div>
+            <div class="aud-sub">Idea-stage · First-time and serial</div>
+          </div>
+          <div class="aud-tag">Core Focus</div>
+        </div>
+        <div class="aud-item">
+          <div class="aud-num">03</div>
+          <div>
+            <div class="aud-name">SMEs</div>
+            <div class="aud-sub">Established · Ready to professionalise</div>
+          </div>
+          <div class="aud-tag">Core Focus</div>
+        </div>
+        <div class="aud-item">
+          <div class="aud-num">04</div>
+          <div>
+            <div class="aud-name">Growth-Stage Companies</div>
+            <div class="aud-sub">At inflection · New markets &amp; verticals</div>
+          </div>
+          <div class="aud-tag">High Priority</div>
+        </div>
+        <div class="aud-item">
+          <div class="aud-num">05</div>
+          <div>
+            <div class="aud-name">Digital-First Organisations</div>
+            <div class="aud-sub">Tech-native · Consumer &amp; B2B</div>
+          </div>
+          <div class="aud-tag">High Priority</div>
+        </div>
+        <div class="aud-item">
+          <div class="aud-num">06</div>
+          <div>
+            <div class="aud-name">Investors &amp; Venture Studios</div>
+            <div class="aud-sub">Portfolio support · Market validation</div>
+          </div>
+          <div class="aud-tag">Advisory</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY VEXO ═══════════ -->
+<section id="why">
+  <div class="si">
+    <div class="why-layout">
+      <div class="why-left">
+        <div class="sec-tag reveal">The Problem We Solve</div>
+        <h2 class="sec-h reveal r1">Growth Without <em>Foundation</em> Is Expensive</h2>
+        <p class="reveal r2">Most businesses invest heavily in marketing, hiring, and product development before they have validated the strategic foundations that make any of those investments effective.</p>
+        <p class="reveal r2">The result is predictable: wasted budgets, misdirected teams, unclear positioning, and growth that plateaus before it truly scales.</p>
+        <div class="why-pull reveal r3">"Most companies don't fail because they can't execute. They fail because they execute the wrong strategy with precision."</div>
+        <p class="reveal r3">Vexo Africa exists to change that equation — helping organisations build the right foundations first, so that when growth investment follows, it compounds rather than dissipates.</p>
+      </div>
+      <div class="why-right">
+        <div class="why-card reveal">
+          <div class="why-card-ico">◈</div>
+          <div>
+            <div class="why-card-title">Validate Before You Scale</div>
+            <div class="why-card-desc">We help you test market assumptions, refine your positioning, and prove product-market fit before committing significant resources to growth channels — reducing the cost of being wrong.</div>
+          </div>
+        </div>
+        <div class="why-card reveal r1">
+          <div class="why-card-ico">◎</div>
+          <div>
+            <div class="why-card-title">Strategy Before Execution</div>
+            <div class="why-card-desc">Every engagement begins with clarity — on market dynamics, competitive positioning, and the specific growth levers most relevant to your situation. We don't start executing until the strategy is sound.</div>
+          </div>
+        </div>
+        <div class="why-card reveal r2">
+          <div class="why-card-ico">◉</div>
+          <div>
+            <div class="why-card-title">Systems, Not Campaigns</div>
+            <div class="why-card-desc">We build repeatable acquisition, retention, and operational systems — not one-off campaigns that require constant reinvention and deliver diminishing returns over time.</div>
+          </div>
+        </div>
+        <div class="why-card reveal r3">
+          <div class="why-card-ico">◐</div>
+          <div>
+            <div class="why-card-title">Africa-Rooted, Globally Relevant</div>
+            <div class="why-card-desc">Deep contextual understanding of African markets, consumer behaviours, and competitive dynamics — combined with global strategic frameworks and best practices.</div>
+          </div>
+        </div>
+        <div class="why-card reveal r4">
+          <div class="why-card-ico">◫</div>
+          <div>
+            <div class="why-card-title">Embedded Partnership Model</div>
+            <div class="why-card-desc">We don't send decks and disappear. We embed with your team across the engagement — providing strategic direction, tactical execution, and ongoing optimisation throughout the journey.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ METRICS ═══════════ -->
+<div class="metrics-bg">
+  <div class="si" style="max-width:1280px;margin:0 auto;padding:0 5vw">
+    <div class="metrics-grid">
+      <div class="metric-card reveal">
+        <span class="metric-n"><span class="count-up" data-target="8">0</span><span class="metric-suffix">+</span></span>
+        <div class="metric-l">Strategic Capabilities</div>
+        <div class="metric-desc">Covering the full spectrum of business growth — from positioning to operational scalability</div>
+      </div>
+      <div class="metric-card reveal r1">
+        <span class="metric-n"><span class="count-up" data-target="3">0</span></span>
+        <div class="metric-l">Active Market Engagements</div>
+        <div class="metric-desc">Live strategic deployments across West Africa, East Africa, and global markets</div>
+      </div>
+      <div class="metric-card reveal r2">
+        <span class="metric-n"><span class="count-up" data-target="5">0</span></span>
+        <div class="metric-l">Phase Methodology</div>
+        <div class="metric-desc">A structured, proven engagement model from discovery through to sustainable growth</div>
+      </div>
+      <div class="metric-card reveal r3">
+        <span class="metric-n"><span class="count-up" data-target="6">0</span><span class="metric-suffix">+</span></span>
+        <div class="metric-l">Digital Platforms Managed</div>
+        <div class="metric-desc">Multi-platform digital infrastructure deployed and optimised across client engagements</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- ═══════════ WORK / CASE STUDIES ═══════════ -->
+<section class="work-bg" id="work">
+  <div class="si">
+    <div class="work-head">
+      <div>
+        <div class="sec-tag reveal">Selected Work</div>
+        <h2 class="sec-h reveal r1">Growth Systems <em>Deployed</em></h2>
+      </div>
+      <p class="work-head-sub reveal r2">A selection of strategic and digital growth engagements across Africa and global markets — each built on evidence, structured for scale.</p>
+    </div>
+
+    <!-- Featured: Vyra Technologies (2 cards) -->
+    <div class="work-featured" style="border:1px solid var(--border);margin-bottom:1px">
+      <div class="work-card reveal">
+        <div class="work-card-accent"></div>
+        <div class="work-region">Consumer Electronics · East Africa</div>
+        <div class="work-client">VyraMobile</div>
+        <div class="work-sub">Smartphones — Kenya &amp; Global Markets · 2025–2026</div>
+        <div class="work-desc">Developed and executed a comprehensive digital market entry strategy for a premium consumer smartphone brand across East African and global markets. Built a structured multi-vertical brand architecture (VyraMobile &amp; VyraHome), established a consistent digital presence across six platforms, designed pre-launch audience acquisition frameworks, and introduced a phased content system — moving the brand from initial setup to a fully structured, scalable pre-launch presence with clearly defined growth systems in place.</div>
+        <div class="work-outcome">
+          <div class="work-outcome-l">Key Outcome</div>
+          <div class="work-outcome-v">Full digital infrastructure established across 6 platforms. Content system evolved from informational to lifestyle-led, competitor-aligned messaging. Pre-launch audience capture initiated with waitlist structure and defined conversion pathways.</div>
+        </div>
+        <div class="work-chips">
+          <span class="chip">Market Entry</span>
+          <span class="chip">Brand Architecture</span>
+          <span class="chip">Digital Strategy</span>
+          <span class="chip">Content Systems</span>
+          <span class="chip">Audience Development</span>
+          <span class="chip">Multi-Platform Management</span>
+        </div>
+      </div>
+
+      <div class="work-card reveal r2">
+        <div class="work-card-accent"></div>
+        <div class="work-region">Home Appliances · East Africa</div>
+        <div class="work-client">VyraHome</div>
+        <div class="work-sub">Home Appliances — Kenya &amp; Global Markets · 2025–2026</div>
+        <div class="work-desc">Positioned and launched the home appliances vertical for Vyra Technologies as a distinct but complementary brand to VyraMobile. Developed differentiated global and regional communication strategies — with a premium, minimal global brand voice and a contextual, usage-driven Kenyan adaptation — refined the lifestyle-led visual direction toward clean, environment-based product storytelling, and introduced a waitlist-to-conversion system designed to bridge pre-launch interest with future revenue activation.</div>
+        <div class="work-outcome">
+          <div class="work-outcome-l">Key Outcome</div>
+          <div class="work-outcome-v">Distinct brand identity established within Vyra's dual-vertical structure. Phased content evolved from announcement-style to experience-led, observation-based storytelling aligned with premium appliance competitor standards.</div>
+        </div>
+        <div class="work-chips">
+          <span class="chip">Product Positioning</span>
+          <span class="chip">Launch Strategy</span>
+          <span class="chip">Regional Adaptation</span>
+          <span class="chip">Visual Direction</span>
+          <span class="chip">Conversion Systems</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optimum: Full-width third card -->
+    <div class="work-third">
+      <div class="work-third-left reveal">
+        <div>
+          <div class="work-region">Consumer Appliances · West Africa</div>
+          <div class="work-client">Optimum</div>
+          <div class="work-sub">Home Appliances — Ghana · 2026</div>
+        </div>
+        <div style="margin-top:32px">
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-faint);margin-bottom:16px;">Engagement Type</div>
+          <div style="font-size:13px;color:var(--text-dim);line-height:1.75">Brand Repositioning &amp; Digital Restructure — existing market, new strategic direction</div>
+        </div>
+        <div style="margin-top:32px" class="work-chips">
+          <span class="chip">Brand Repositioning</span>
+          <span class="chip">Growth Strategy</span>
+          <span class="chip">Paid Media Planning</span>
+          <span class="chip">Content Architecture</span>
+          <span class="chip">E-Commerce Alignment</span>
+        </div>
+      </div>
+      <div class="work-third-right reveal r2">
+        <div class="work-desc">Restructured the complete digital presence and brand communication strategy for an established Ghanaian home appliances brand. Repositioned Optimum as a premium, globally competitive appliance company rooted in Ghana — moving from inconsistent posting and generic messaging to a structured, strategic content calendar system with clearly defined phases: Foundation, Structure &amp; Consistency, Strategic Creativity, and Product Expansion.</div>
+        <div class="work-desc" style="margin-top:16px">Refined the visual identity toward clean, retail-standard product aesthetics — website-style layouts, minimal backgrounds, structured product highlighting — and developed a tiered paid media strategy (Tier A: $450–600/month through to Tier C: $1,800–2,500/month) for scalable customer acquisition across Google and Meta platforms, aligned with the brand's e-commerce and website infrastructure.</div>
+        <div class="work-outcome" style="margin-top:28px">
+          <div class="work-outcome-l">Key Outcome</div>
+          <div class="work-outcome-v">Brand presence elevated from generic to premium-positioned, competitor-aligned standard. Content system made repeatable and scalable. Paid media framework ready for activation. Product categories expanded to include washing machines during engagement period.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ INSIGHTS ═══════════ -->
+<section id="insights">
+  <div class="si">
+    <div class="sec-tag reveal">Intelligence &amp; Research</div>
+    <h2 class="sec-h reveal r1">Business <em>Intelligence</em></h2>
+    <p class="reveal r2" style="font-size:14px;color:var(--text-faint);max-width:580px;line-height:1.9;margin-top:16px">Strategic research, market analysis, and business intelligence reports from our advisory practice — publishing soon.</p>
+    <div class="ins-grid">
+      <div class="ins-card reveal">
+        <div class="ins-cat">Growth Strategy</div>
+        <div class="ins-title">Why African Startups Over-Invest in Marketing Before Validating Strategy</div>
+        <div class="ins-desc">A structured analysis of the most common growth failures observed across African startups — and the strategic interventions that prevent wasted capital and misdirected execution.</div>
+        <div class="ins-footer">
+          <span class="ins-status">Coming Soon</span>
+          <span class="ins-arr">→</span>
+        </div>
+      </div>
+      <div class="ins-card reveal r1">
+        <div class="ins-cat">Market Intelligence</div>
+        <div class="ins-title">Consumer Electronics in East Africa: Positioning, Pricing, and the Premium Gap</div>
+        <div class="ins-desc">Insights drawn from positioning and launching technology consumer brands in fast-evolving East African markets — covering the competitive landscape, consumer behaviour, and the emerging premium tier opportunity.</div>
+        <div class="ins-footer">
+          <span class="ins-status">Coming Soon</span>
+          <span class="ins-arr">→</span>
+        </div>
+      </div>
+      <div class="ins-card reveal r2">
+        <div class="ins-cat">Digital Strategy</div>
+        <div class="ins-title">Building Digital Presence Systems for Product Brands in Emerging Markets</div>
+        <div class="ins-desc">A practical framework for consumer product companies establishing digital infrastructure in high-growth emerging markets — covering platform architecture, content systems, and phased paid acquisition strategies.</div>
+        <div class="ins-footer">
+          <span class="ins-status">Coming Soon</span>
+          <span class="ins-arr">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="contact-bg" id="contact">
+  <div class="si">
+    <div class="sec-tag reveal">Get in Touch</div>
+    <h2 class="sec-h reveal r1">Start a <em>Conversation</em></h2>
+    <div class="contact-layout">
+      <div class="contact-info reveal">
+        <h3>Ready to build the foundation for serious growth?</h3>
+        <p>Whether you are a founder at the beginning of a journey, a startup entering a new market, or an established business seeking strategic clarity — we would like to hear from you. Every engagement begins with a conversation.</p>
+        <div class="contact-details">
+          <div class="c-detail">
+            <span class="c-label">Entity</span>
+            <span class="c-val">VEXO LIMITED (RC 9146038)</span>
+          </div>
+          <div class="c-detail">
+            <span class="c-label">Email</span>
+            <span class="c-val"><a href="mailto:vexo.brands@gmail.com">vexo.brands@gmail.com</a></span>
+          </div>
+          <div class="c-detail">
+            <span class="c-label">Headquarters</span>
+            <span class="c-val">Africa — Operating Globally</span>
+          </div>
+          <div class="c-detail">
+            <span class="c-label">Scope</span>
+            <span class="c-val">Strategy · Technology · Growth</span>
+          </div>
+          <div class="c-detail">
+            <span class="c-label">Focus</span>
+            <span class="c-val">Founders · Startups · Growth-Stage Businesses</span>
+          </div>
+        </div>
+        <div style="margin-top:40px;padding:24px;border:1px solid var(--border);background:rgba(122,158,114,0.04)">
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Response Commitment</div>
+          <div style="font-size:13px;color:var(--text-dim);line-height:1.7">We review every enquiry carefully. Qualified engagements receive a response within 2 business days. All conversations are treated with confidentiality.</div>
+        </div>
+      </div>
+      <div class="reveal r2">
+        <div class="form" id="contactForm">
+          <div class="form-row">
+            <div class="fg">
+              <label class="fl">First Name</label>
+              <input type="text" class="fi" placeholder="Your first name"/>
+            </div>
+            <div class="fg">
+              <label class="fl">Last Name</label>
+              <input type="text" class="fi" placeholder="Your last name"/>
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">Email Address</label>
+            <input type="email" class="fi" placeholder="your@email.com"/>
+          </div>
+          <div class="fg">
+            <label class="fl">Company / Organisation</label>
+            <input type="text" class="fi" placeholder="Company name (if applicable)"/>
+          </div>
+          <div class="form-row">
+            <div class="fg">
+              <label class="fl">Business Stage</label>
+              <select class="fs">
+                <option value="" disabled selected>Select stage</option>
+                <option>Idea Stage</option>
+                <option>Pre-Revenue Startup</option>
+                <option>Early Revenue</option>
+                <option>Growth Stage</option>
+                <option>Established SME</option>
+                <option>Investor / Advisory</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label class="fl">Primary Need</label>
+              <select class="fs">
+                <option value="" disabled selected>Select focus area</option>
+                <option>Market Entry Strategy</option>
+                <option>Growth Strategy</option>
+                <option>Product Positioning</option>
+                <option>Digital Products</option>
+                <option>Brand Development</option>
+                <option>Business Intelligence</option>
+                <option>Customer Acquisition</option>
+                <option>Operational Scalability</option>
+                <option>General Enquiry</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label class="fl">Tell us about your situation</label>
+            <textarea class="ft" placeholder="Brief overview of where you are, what you are trying to achieve, and how we can help..."></textarea>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+            <button class="fsub" onclick="handleSubmit(event)" type="button">
+              Send Enquiry
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form-note">By submitting, you agree to be contacted regarding your enquiry. We respect your privacy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 44" height="30" aria-label="Vexo Africa">
+  <rect x="0" y="26" width="28" height="7" rx="1" fill="#7a9e72" transform="rotate(-32,14,29.5)" opacity="0.4"/>
+  <rect x="5" y="18" width="28" height="7" rx="1" fill="#7a9e72" transform="rotate(-32,19,21.5)" opacity="0.5"/>
+  <rect x="10" y="10" width="28" height="7" rx="1" fill="#7a9e72" transform="rotate(-32,24,13.5)" opacity="0.6"/>
+  <rect x="22" y="26" width="28" height="7" rx="1" fill="#7a9e72" transform="rotate(32,36,29.5)" opacity="0.4"/>
+  <rect x="17" y="18" width="28" height="7" rx="1" fill="#7a9e72" transform="rotate(32,31,21.5)" opacity="0.5"/>
+  <rect x="12" y="10" width="28" height="7" rx="1" fill="#7a9e72" transform="rotate(32,26,13.5)" opacity="0.6"/>
+  <path d="M46,2 C47.5,1.5 49,2 50,3.5 C51.5,5 51.5,7 50.5,9 C50,10.5 49,12 48,13.5 C47,15 46,15.5 45,14.5 C44,13 43.5,11 44,9 C44,7 43.5,5 44.5,3.5 C45,2.5 45.5,2 46,2 Z" fill="#c0614a" opacity="0.5"/>
+  <text x="60" y="26" font-family="'DM Sans',system-ui,sans-serif" font-size="16" font-weight="600" letter-spacing="3.5" fill="rgba(255,255,255,0.45)">VEXO</text>
+  <text x="61" y="38" font-family="'DM Sans',system-ui,sans-serif" font-size="8" font-weight="400" letter-spacing="4.5" fill="rgba(255,255,255,0.2)">AFRICA</text>
+</svg>
+      <p>A technology and growth company helping founders and organisations build strategic, technological, and operational foundations for sustainable growth.</p>
+      <span class="footer-reg">VEXO LIMITED · RC 9146038</span>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Vexo Africa</a></li>
+        <li><a href="#process">How We Work</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#insights">Insights</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Capabilities</h4>
+      <ul>
+        <li><a href="#capabilities">Market Entry</a></li>
+        <li><a href="#capabilities">Growth Strategy</a></li>
+        <li><a href="#capabilities">Product Positioning</a></li>
+        <li><a href="#capabilities">Digital Products</a></li>
+        <li><a href="#capabilities">Brand Development</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>More Services</h4>
+      <ul>
+        <li><a href="#capabilities">Business Intelligence</a></li>
+        <li><a href="#capabilities">Operational Scalability</a></li>
+        <li><a href="#capabilities">Customer Acquisition</a></li>
+        <li><a href="#capabilities">Technology Enablement</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:vexo.brands@gmail.com">vexo.brands@gmail.com</a></li>
+        <li><a href="#contact">Book a Consultation</a></li>
+        <li><a href="#audience">Who We Work With</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-bottom-l">© 2026 Vexo Africa. All rights reserved. A VEXO LIMITED Company.</p>
+    <div class="footer-bottom-r">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="mailto:vexo.brands@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ SCRIPTS ═══════════ -->
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cur');
+const curR = document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+function animCur(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(animCur)}
+animCur();
+document.querySelectorAll('a,button,.cap-card,.work-card,.why-card,.aud-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2)';curR.style.transform='translate(-50%,-50%) scale(1.5)'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';curR.style.transform='translate(-50%,-50%) scale(1)'});
+});
+
+/* ── NAV SCROLL ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50),{passive:true});
+
+/* ── MOBILE MENU ── */
+function openNav(){document.getElementById('mobNav').classList.add('open');document.body.style.overflow='hidden'}
+function closeNav(){document.getElementById('mobNav').classList.remove('open');document.body.style.overflow=''}
+
+/* ── HERO CANVAS PARTICLES ── */
+(function(){
+  const canvas=document.getElementById('hero-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight}
+  resize();window.addEventListener('resize',()=>{resize();init()},{passive:true});
+  function Pt(){
+    this.x=Math.random()*W;this.y=Math.random()*H;
+    this.vx=(Math.random()-0.5)*0.18;this.vy=(Math.random()-0.5)*0.18;
+    this.r=Math.random()*1.4+0.3;this.a=Math.random();
+  }
+  function init(){pts=[];for(let i=0;i<90;i++)pts.push(new Pt())}
+  init();
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(122,158,114,${p.a*0.5})`;ctx.fill();
+    });
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<110){
+          ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+          ctx.strokeStyle=`rgba(122,158,114,${(1-d/110)*0.08})`;ctx.lineWidth=0.5;ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── REVEAL ON SCROLL ── */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target)}});
+},{threshold:0.08,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* ── COUNT UP ── */
+function countUp(el){
+  const target=+el.dataset.target;let cur=0;
+  const step=Math.ceil(target/30);
+  const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=cur;if(cur>=target)clearInterval(t)},40);
+}
+const co=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){countUp(e.target);co.unobserve(e.target)}});
+},{threshold:0.5});
+document.querySelectorAll('.count-up,.hero-badge-n[data-count]').forEach(el=>{
+  if(el.dataset.count)el.dataset.target=el.dataset.count;
+  co.observe(el);
+});
+
+/* ── FORM SUBMIT ── */
+function handleSubmit(e){
+  const btn=e.currentTarget;
+  btn.innerHTML='Sending&hellip;';btn.style.opacity='0.7';btn.disabled=true;
+  setTimeout(()=>{
+    btn.innerHTML='✓ Enquiry Sent — We\'ll be in touch';
+    btn.style.background='var(--accent-d)';btn.style.opacity='1';
+  },1400);
+}
+
+/* ── SMOOTH SECTION HIGHLIGHT ── */
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(scrollY>=s.offsetTop-100)cur=s.id});
+  navLinks.forEach(a=>{
+    a.style.color=a.getAttribute('href')==='#'+cur?'var(--accent-l)':'';
+  });
+},{passive:true});
+</script>
+</body>
+</html>
